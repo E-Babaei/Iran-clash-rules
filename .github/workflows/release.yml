@@ -42,16 +42,16 @@ jobs:
       - name: Create release directory
         run: mkdir release
 
-      - name: Generate Meta-geoip
-        run: |
-          gh release download -p "geo-linux-amd64" --repo metacubex/geo --output geo
-          chmod +x ./geo
-          ./geo convert ip -i v2ray -o meta -f geoip.metadb ./source/geoip.dat
-          ./geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./source/geoip-lite.dat
-          ./geo convert ip -i v2ray -o meta -f security-ip.metadb ./source/security-ip.dat
-          mv geoip.metadb geoip-lite.metadb security-ip.metadb release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Generate Meta-geoip
+      #   run: |
+      #     gh release download -p "geo-linux-amd64" --repo metacubex/geo --output geo
+      #     chmod +x ./geo
+      #     ./geo convert ip -i v2ray -o meta -f geoip.metadb ./source/geoip.dat
+      #     ./geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./source/geoip-lite.dat
+      #     ./geo convert ip -i v2ray -o meta -f security-ip.metadb ./source/security-ip.dat
+      #     mv geoip.metadb geoip-lite.metadb security-ip.metadb release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get IR ASN numbers from RIPE
         run: |
