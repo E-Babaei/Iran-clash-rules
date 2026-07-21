@@ -11,6 +11,9 @@ on:
   schedule:
     - cron: "50 5 * * *"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -83,7 +86,7 @@ jobs:
           cd release || exit 1
           git init
           git config --local user.name "github-actions[bot]"
-          git config --local user.email "87438408+E-Babaei@users.noreply.github.com"
+          git config --local user.email "87438408+github-actions[bot]@users.noreply.github.com"
           git checkout -b release
           git add .
           git commit -m "${{ env.RELEASE_NAME }}"
